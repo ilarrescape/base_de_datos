@@ -1,0 +1,12 @@
+CREATE TABLE area (
+    id_area INT PRIMARY KEY,
+    nombre_area VARCHAR (50)
+);
+
+CREATE TABLE area_cargo(
+    id_area INT
+    id_cargo INT
+    PRIMARY KEY (id_area,id_cargo),
+    FORENIGN KEY (id_area) REFERENCES area (id_area),
+    FORENIGN KEY (id_cargo) REFERENCES cargo (id_cargo),
+);
