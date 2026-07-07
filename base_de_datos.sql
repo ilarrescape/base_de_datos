@@ -26,7 +26,7 @@ create table if not exists Empleado(
 );
 
 create table if not exists Mesas (
-    id_mesa int,
+    id_mesa int auto_increment,
     num_nom_mesa varchar(30),
     cantidad_comensales int,
     ubicacion_x float,
@@ -34,5 +34,6 @@ create table if not exists Mesas (
     descripcion text,
     fk_restaurante int,
     constraint Mesas_fkey_Restaurante
-    foreign key (fk_restaurante) references Restaurante(cuit)
+        foreign key (fk_restaurante) references Restaurante(cuit),
+    PRIMARY KEY(id_mesa)
 );
