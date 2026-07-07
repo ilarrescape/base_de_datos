@@ -8,13 +8,18 @@ CREATE TABLE IF NOT EXISTS Producto (
     precio_unitario float not null,
     fk_categoria int not null,
     fk_cuit_restaurante int not null,
-    foreign key (fk_categoria) references Categoria(id_categoria),
+    foreign key (fk_categoria) references Categoria(id_categoria)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+    
     foreign key (fk_cuit_restaurante) references Restaurante(cuit)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
     );
 
 create table if not exists Categoria (
     id_categoria int not null auto_increment primary key,
     nombre_categoria varchar(45) not null,
     descripcion_categoria varchar(200)
-    )
+)
 
