@@ -16,5 +16,5 @@ create table if not exists Categoria (
     id_categoria int not null auto_increment primary key,
     nombre_categoria varchar(45) not null,
     descripcion_categoria varchar(200)
-    );
+    )
 
