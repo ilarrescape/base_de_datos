@@ -3,7 +3,7 @@ USE Data_Base;
 
 CREATE TABLE IF NOT EXISTS Restaurante (
     cuit int not null primary key,
-    razon_social VARCHAR(80) not null,
+    razon_social VARCHAR(80) not null UNIQUE,
     nombre_fantasia VARCHAR(60) not null,
     direccion VARCHAR not null,
     fk_ciudad int not null,
@@ -31,5 +31,6 @@ CREATE TABLE IF NOT EXISTS Restaurante_Cargo_Empleado (
 
     Foreign key (fk_DNI_empleado) REFERENCES Empleado(dni)
         ON UPDATE CASCADE
-        ON DELETE RESTRICT
+        ON DELETE RESTRICT,
+    PRIMARY key(fk_cargo, fk_condicion, fk_cuit_restaurante, fk_DNI_empleado)
 )
